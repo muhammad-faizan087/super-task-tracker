@@ -114,7 +114,12 @@ const Dashboard = () => {
         console.log(result.message);
         return;
       }
-      setAlltasks(result.tasks);
+      if (user.role === "ADMIN") {
+        setAlltasks(result.tasks.filter((t) => t.createdBy === user._id));
+      } else if (user.role === "MEMBER") {
+        setAlltasks(result.tasks.filter((t) => t.assignedTo === user._id));
+      }
+
       settasks(result.tasks);
       console.log("Tasks:", result.tasks);
     } catch (error) {
