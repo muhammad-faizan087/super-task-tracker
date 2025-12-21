@@ -30,7 +30,7 @@ export async function DELETE(req) {
     }
 
     await Activity.create({
-      userId: session.user.id,
+      userId: session.user._id,
       action: "deleted task",
       taskTitle: task.title,
       details: `Task was removed from the board`,

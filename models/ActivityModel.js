@@ -32,10 +32,6 @@ const ActivitySchema = new mongoose.Schema(
     details: {
       type: String,
     },
-    timestamp: {
-      type: Date,
-      default: Date.now,
-    },
   },
   { timestamps: true }
 );

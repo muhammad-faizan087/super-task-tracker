@@ -510,13 +510,14 @@ const Dashboard = () => {
                       taskId={t._id}
                       deleteTaskById={deleteTaskById}
                       getTasks={getTasks}
+                      getActivities={getActivities}
                     />
                   );
                 })}
             </div>
           </TabsContent>
           <TabsContent value="Activity Log" className="space-y-4">
-            <div className="max-w-4xl">
+            <div className="w-full">
               <div className="bg-white rounded-lg border shadow-sm">
                 <div className="p-4 border-b">
                   <h2 className="text-lg font-semibold">Recent Activities</h2>
@@ -538,7 +539,7 @@ const Dashboard = () => {
                           key={index}
                           className="p-4 hover:bg-gray-50 transition-colors"
                         >
-                          <div className="flex items-start gap-3">
+                          <div className="flex items-center gap-4">
                             <div className="shrink-0 mt-1">
                               <div className="w-8 h-8 rounded-full bg-blue-100 flex items-center justify-center text-blue-600 font-medium text-sm">
                                 {actorName
@@ -581,7 +582,7 @@ const Dashboard = () => {
                                   )}
                                 </p>
                                 <span className="text-xs text-muted-foreground whitespace-nowrap">
-                                  {formatDateDMY(activity.timestamp)}
+                                  {formatDateDMY(activity.createdAt)}
                                 </span>
                               </div>
                             </div>

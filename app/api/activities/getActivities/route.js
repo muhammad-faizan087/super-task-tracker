@@ -15,7 +15,7 @@ export async function GET(req) {
     await connectDB();
 
     const activities = await Activity.find()
-      .sort({ timestamp: -1 })
+      .sort({ createdAt: -1 })
       .limit(50)
       .lean();
 

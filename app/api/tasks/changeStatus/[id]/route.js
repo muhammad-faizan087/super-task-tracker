@@ -36,7 +36,7 @@ export async function PATCH(req) {
     }
 
     await Activity.create({
-      userId: session.user.id,
+      userId: session.user._id,
       action: "updated task status",
       taskId: task._id,
       taskTitle: task.title,

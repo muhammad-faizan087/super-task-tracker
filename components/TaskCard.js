@@ -22,6 +22,7 @@ const TaskCard = ({
   taskId,
   deleteTaskById,
   getTasks,
+  getActivities,
 }) => {
   const [Status, setStatus] = useState(status);
 
@@ -54,6 +55,7 @@ const TaskCard = ({
 
       setStatus(newStatus);
       getTasks();
+      getActivities();
       toast.success(result.message);
     } catch {
       toast.error("Something went wrong");
@@ -133,11 +135,14 @@ const TaskCard = ({
           </DropdownMenuContent>
         </DropdownMenu>
         <Button
-          className={"bg-[#df202e] hover:bg-red-500 text-white cursor-pointer"}
+          className={
+            "bg-[#df202e] hover:bg-red-500 text-white cursor-pointer disabled:cursor-not-allowed"
+          }
           size="icon"
           onClick={() => {
             handleDelete(taskId);
           }}
+          disabled={role === "MEMBER"}
         >
           {<Trash2 />}
         </Button>

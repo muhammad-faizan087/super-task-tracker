@@ -37,7 +37,7 @@ export async function POST(request) {
     });
 
     await Activity.create({
-      userId: session.user.id,
+      userId: session.user._id,
       action: "created task",
       taskId: task._id,
       taskTitle: task.title,
