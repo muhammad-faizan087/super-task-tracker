@@ -30,8 +30,8 @@ export default function Home() {
   return (
     <div className="box-border min-h-screen min-w-screen overflow-x-hidden">
       <Navbar />
-      <main className=" min-h-[80%] py-16 px-4 w-full flex flex-col gap-20 ">
-        <div className="text-center max-w-3xl mx-auto space-y-8">
+      <main className=" min-h-[80%] py-10 sm:py-16 px-4 w-full flex flex-col gap-20 ">
+        <div className="text-center max-w-3xl mx-auto space-y-6 sm:space-y-8">
           <h1 className="text-3xl sm:text-5xl font-bold">
             Manage Tasks With Your Team
           </h1>
@@ -70,7 +70,7 @@ export default function Home() {
           })}
         </div>
       </main>
-      <footer className="h-[10vh] w-full border-t flex items-center justify-center">
+      <footer className="h-[10vh] px-4 text-sm sm:text-[16px] text-center w-full border-t flex items-center justify-center">
         Smart Task Board - Team Collaboration Made Simple
       </footer>
     </div>

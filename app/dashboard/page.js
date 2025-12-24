@@ -71,8 +71,17 @@ const Dashboard = () => {
         console.log(result.message);
         return;
       }
-      setActivities(result.activities);
-      console.log("Activities:", result.activities);
+      if (user.role === "ADMIN") {
+        setActivities(result.activities.filter((a) => a.userId === user._id));
+      } else if (user.role === "MEMBER") {
+        setActivities(
+          result.activities.filter((a) => {
+            return a.userId === user._id || a.targetUserId === user._id;
+          })
+        );
+      }
+      // setActivities(result.activities);
+      // console.log("Activities:", result.activities);
     } catch (error) {
       console.log("Error finding activities", error);
     }
@@ -95,7 +104,7 @@ const Dashboard = () => {
         return;
       }
       setusers(result.users);
-      console.log("Users:", result.users);
+      // console.log("Users:", result.users);
     } catch (error) {
       console.log("Error finding users", error);
     }
@@ -121,7 +130,7 @@ const Dashboard = () => {
       }
 
       settasks(result.tasks);
-      console.log("Tasks:", result.tasks);
+      // console.log("Tasks:", result.tasks);
     } catch (error) {
       console.log("Error finding tasks", error);
     }

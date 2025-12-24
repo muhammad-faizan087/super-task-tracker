@@ -58,7 +58,7 @@ const SignUpPage = () => {
       const result = await res.json();
 
       if (!res.ok) {
-        console.log(result.message);
+        // console.log(result.message);
         setError(result.message);
         return;
       }
@@ -66,7 +66,7 @@ const SignUpPage = () => {
       toast.success(result.message);
       router.push("/login");
     } catch (error) {
-      console.log("Error saving userdata.", error);
+      // console.log("Error saving userdata.", error);
       setError("Something went wrong. Please try again.");
     } finally {
       setPending(false);

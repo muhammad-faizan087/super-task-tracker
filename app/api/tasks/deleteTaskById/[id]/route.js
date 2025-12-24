@@ -16,7 +16,7 @@ export async function DELETE(req) {
   await connectDB();
 
   const id = req.nextUrl.pathname.split("/").pop();
-  console.log("TaskId", id);
+  // console.log("TaskId", id);
 
   if (!Types.ObjectId.isValid(id)) {
     return NextResponse.json({ message: "Invalid task ID" }, { status: 400 });

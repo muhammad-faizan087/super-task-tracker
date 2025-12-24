@@ -7,7 +7,7 @@ export async function GET() {
 
   try {
     const users = await UserModel.find();
-    console.log("Users:", users);
+    // console.log("Users:", users);
     if (users.length === 0) {
       return NextResponse.json(
         {

@@ -16,7 +16,7 @@ export async function PATCH(req) {
   await connectDB();
 
   const id = req.nextUrl.pathname.split("/").pop();
-  console.log("TaskId", id);
+  // console.log("TaskId", id);
   const body = await req.json();
   const { status } = body;
 

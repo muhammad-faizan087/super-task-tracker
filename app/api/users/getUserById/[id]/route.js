@@ -7,7 +7,7 @@ export async function GET(req, { params }) {
   await connectDB();
 
   const { id } = params;
-  console.log("id", id);
+  // console.log("id", id);
 
   if (!mongoose.Types.ObjectId.isValid(id)) {
     return NextResponse.json({ message: "Invalid user ID" }, { status: 400 });

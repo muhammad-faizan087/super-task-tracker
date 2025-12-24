@@ -7,7 +7,7 @@ export async function GET() {
 
   try {
     const tasks = await TaskModel.find({});
-    console.log("Tasks:", tasks);
+    // console.log("Tasks:", tasks);
     if (tasks.length === 0) {
       return NextResponse.json(
         {
