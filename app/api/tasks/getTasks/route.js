@@ -1,8 +1,16 @@
 import { connectDB } from "@/lib/mongoose";
 import TaskModel from "@/models/TaskModel";
+import { getServerSession } from "next-auth";
 import { NextResponse } from "next/server";
+import { authOptions } from "../../auth/[...nextauth]/route";
 
 export async function GET() {
+  const session = await getServerSession(authOptions);
+
+  if (!session) {
+    return NextResponse.json({ message: "Unauthorized" }, { status: 401 });
+  }
+
   const conn = await connectDB();
 
   try {
