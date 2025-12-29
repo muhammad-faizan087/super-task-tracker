@@ -251,14 +251,14 @@ const Dashboard = () => {
 
   if (status === "loading") {
     return (
-      <div className="min-h-screen min-w-screen flex justify-center items-center bg-gray-600">
+      <div className="min-h-screen w-full flex justify-center items-center bg-gray-600">
         <Loader2 className="animate-spin " />
       </div>
     );
   }
 
   return (
-    <div className="min-h-screen min-w-screen box-border">
+    <div className="min-h-screen w-full box-border">
       <nav className="py-3 flex justify-between items-center px-4 border-b">
         <div className="space-y-1">
           <h1 className="text-lg sm:text-2xl font-bold">Smart Task Board</h1>
@@ -485,49 +485,54 @@ const Dashboard = () => {
                 </DropdownMenuContent>
               </DropdownMenu>
             </div>
-
-            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 w-full">
-              <StatusCard
-                color={"#f1f5f9"}
-                status={"Todo"}
-                number={tasks.filter((t) => t.status === "Todo").length}
-              />
-              <StatusCard
-                color={"#dbeafe"}
-                status={"In Progress"}
-                number={tasks.filter((t) => t.status === "In Progress").length}
-              />
-              <StatusCard
-                color={"#dbfce7"}
-                status={"Done"}
-                number={tasks.filter((t) => t.status === "Done").length}
-              />
+            <div className="w-full overflow-x-hidden">
+              <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 min-w-0">
+                <StatusCard
+                  color={"#f1f5f9"}
+                  status={"Todo"}
+                  number={tasks.filter((t) => t.status === "Todo").length}
+                />
+                <StatusCard
+                  color={"#dbeafe"}
+                  status={"In Progress"}
+                  number={
+                    tasks.filter((t) => t.status === "In Progress").length
+                  }
+                />
+                <StatusCard
+                  color={"#dbfce7"}
+                  status={"Done"}
+                  number={tasks.filter((t) => t.status === "Done").length}
+                />
+              </div>
             </div>
-            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 w-full">
-              {tasks &&
-                tasks.map((t, index) => {
-                  const assignedToUserName =
-                    usersMap[t.assignedTo] || "Unassigned";
-                  const assignedByUserName =
-                    usersMap[t.createdBy] || "Unassigned";
-                  return (
-                    <TaskCard
-                      key={index}
-                      priority={t.priority}
-                      status={t.status}
-                      description={t.description}
-                      createdAt={formatDateDMY(t.createdAt)}
-                      assignedTo={assignedToUserName}
-                      assignedBy={assignedByUserName}
-                      title={t.title}
-                      role={user.role}
-                      taskId={t._id}
-                      deleteTaskById={deleteTaskById}
-                      getTasks={getTasks}
-                      getActivities={getActivities}
-                    />
-                  );
-                })}
+            <div className="w-full overflow-x-hidden">
+              <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 min-w-0">
+                {tasks &&
+                  tasks.map((t, index) => {
+                    const assignedToUserName =
+                      usersMap[t.assignedTo] || "Unassigned";
+                    const assignedByUserName =
+                      usersMap[t.createdBy] || "Unassigned";
+                    return (
+                      <TaskCard
+                        key={index}
+                        priority={t.priority}
+                        status={t.status}
+                        description={t.description}
+                        createdAt={formatDateDMY(t.createdAt)}
+                        assignedTo={assignedToUserName}
+                        assignedBy={assignedByUserName}
+                        title={t.title}
+                        role={user.role}
+                        taskId={t._id}
+                        deleteTaskById={deleteTaskById}
+                        getTasks={getTasks}
+                        getActivities={getActivities}
+                      />
+                    );
+                  })}
+              </div>
             </div>
           </TabsContent>
           <TabsContent value="Activity Log" className="space-y-4">

@@ -63,7 +63,7 @@ const TaskCard = ({
   };
 
   return (
-    <div className="p-6 rounded-lg space-y-6 border">
+    <div className="p-6 rounded-lg space-y-6 border min-w-0">
       <div className="flex justify-between items-center">
         <h1 className=" text-xl font-semibold">{title}</h1>
         <span
