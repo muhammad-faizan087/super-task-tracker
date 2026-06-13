@@ -28,9 +28,9 @@ import React from "react";
 
 export default function Home() {
   return (
-    <div className="box-border min-h-screen min-w-screen overflow-x-hidden">
+    <div className="flex flex-col min-h-screen min-w-screen overflow-x-hidden">
       <Navbar />
-      <main className=" min-h-[80%] py-10 sm:py-16 px-4 w-full flex flex-col gap-20 ">
+      <main className="flex-1 py-10 sm:py-16 px-4 w-full flex flex-col gap-20">
         <div className="text-center max-w-3xl mx-auto space-y-6 sm:space-y-8">
           <h1 className="text-3xl sm:text-5xl font-bold">
             Manage Tasks With Your Team
@@ -51,11 +51,11 @@ export default function Home() {
             </Link>
           </div>
         </div>
-        <div className="flex flex-col items-center justify-center sm:flex-row sm:items-baseline space-y-8 md:space-x-8">
+        <div className="flex flex-col sm:flex-row items-center sm:items-start justify-center gap-8 md:gap-12 max-w-5xl mx-auto w-full">
           {features.map((feature, index) => {
             return (
               <div
-                className="flex flex-col justify-center items-center text-center space-y-4 sm:space-x-4"
+                className="flex flex-col justify-center items-center text-center space-y-4 max-w-xs"
                 key={index}
               >
                 <span className="w-10 h-10 flex justify-center items-center bg-blue-100 rounded-xl">
